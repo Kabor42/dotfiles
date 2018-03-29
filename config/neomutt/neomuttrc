@@ -1,0 +1,66 @@
+set imap_user       =   "n.dominik"
+
+set nm_default_uri  =   "notmuch://~/.mail
+
+set folder          =   "~/.mail/"
+set spoolfile       =   "+INBOX"
+set record          =   "+Sent"
+set postponed       =   "+Drafts"
+
+set alias_file      =   ~/.config/neomutt/alias
+set header_cache    =   ~/.config/neomutt/cache/headers
+set message_cachedir=   ~/.config/neomutt/cache/bodies
+set mailcap_path    =   ~/.config/neomutt/mailcap
+set tmpdir          =   ~/.config/neomutt/tmp
+set signature       =   ~/.config/neomutt/sig
+
+set sleep_time      =   0
+set beep            =   no
+set editor          =   "/usr/bin/vim -c 'set tw=80' -c 'set wrapmargin=2'"
+auto_view text/html
+set sort            =   threads
+#set index_format    =   "%4C %Z %{%b %d %R} %-15.15L (%?l?%4l&%4c) %s"
+set index_format    =   "%4C %Z %[!%m/%d] %-17.17F %s"
+
+set sidebar_visible
+set sidebar_format  =   "%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+
+mailboxes           +INBOX\
+                    +KSZK\
+                    +Suli\
+                    +LOT\
+                    +NewsLetter\
+                    +Notification\
+                    +Spam\
+                    +Drafts\
+                    +Sent
+
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
+
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CI sidebar-open
+bind index,pager \CB sidebar-toggle-visible
+
+bind attach <return> view-mailcap
+
+set query_command   =   "notmuch address %s"
+set query_format    =   "%4c %t %-70.70a %-70.70n %?e?(%e)?"
+bind editor <Tab>   complete-query
+bind editor ^T      complete
+
+
+set realname        = "Nagy Dominik"
+set from            = "n.dominik@zoho.com"
+
+set smtp_url        = smtps://n.dominik@smtp.zoho.com:465/
+
+source $HOME/.config/neomutt/colors
+
+# set smtp_authenticators = "gsappi:login"

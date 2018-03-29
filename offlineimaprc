@@ -1,0 +1,21 @@
+[general]
+accounts            =   DomiZoho
+
+[Account DomiZoho]
+localrepository     =   ZLocal
+remoterepository    =   ZRemote
+postsynchook        =   notmuch new
+
+[Repository ZRemote]
+type                =   IMAP
+remotehost          =   imap.zoho.com
+remoteport          =   993
+remoteuser          =   n.dominik
+remotepass          =   bmGzCJmtxvxt
+ssl                 =   yes
+sslcacertfile       =   /etc/ssl/certs/ca-certificates.crt
+
+[Repository ZLocal]
+type                =   Maildir
+localfolders        =   ~/.mail
+restoreatime        =   no

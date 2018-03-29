@@ -1,0 +1,46 @@
+set imap_user       =   "n.dominik"
+set imap_pass       =   "bmGzCJmtxvxt"
+
+set nm_default_uri  =   "notmuch://~/.mail
+
+set folder          =   "imaps://n.dominik@imap.zoho.com:993/"
+set spoolfile       =   "=INBOX"
+set record          =   "=Sent"
+set postponed       =   "=Drafts"
+
+set sleep_time      =   0
+set beep            =   no
+set editor          =   "/usr/bin/vim"
+auto_view text/html
+set sort            =   reverse-date
+set index_format    =   "%4C %Z %{%b %d %R} %-15.15L (%?|?%4|&%4c) %s"
+
+set sidebar_visible
+set sidebar_format  =   "%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+
+mailboxes           =Inbox\
+                    =Drafts\
+                    =Sent\
+                    =KSZK\
+                    =Suli\
+                    =LOT
+
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
+
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CI sidebar-open
+bind index,pager \CB sidebar-toggle-visible
+
+set realname        = "Nagy Dominik"
+set from            = "n.dominik@zoho.com"
+
+set smtp_url        = smtps://n.dominik@smtp.zoho.com:465/
+set smtp_pass       = "bmGzCJmtxvxt"
+# set smtp_authenticators = "gsappi:login"

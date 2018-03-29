@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+imapserver=$( cat ~/.offlineimaprc | grep remotehost | awk '{print $3}' )
+is_active=$( ps -ef | grep '[o]fflineimap' | wc -l )
+is_net_active=$( ping -c3 www.google.com >/dev/null 2>&1 && echo up || echo down )
+mailsync="/usr/bin/offlineimap -u quiet -q"
+
+mail_dir_new="${HOME}/.mail/*/*/new/"
+mail_dir_old="${HOME}/.mail/*/*/cur/"
+new="$(find $mail_dir_new -type f | wc -l)"
+old="$(find $mail_dir_old -type f | wc -l)"
+
+case $is_active in
+    '1')
+        killall offlineimap && sleep 10
+        ;;
+esac
+
+case $is_net_active in
+    'up')
+        $mailsync
+        if [ $new -gt 0]
+        then
+            export DISPLAY=:0; export XAUTHORITY=~/.Xauthority;
+            notify-send -a "OfflineIMAP" "New mail!\nNew: ${new} Old: ${old}"
+        fi
+        ;;
+    'down')
+        :
+        ;;
+esac
+#vim:ft=sh:ts=2:sts=2

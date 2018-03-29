@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+
+place="${HOME}/Pictures/Timelapse/szoba"
+name="image_$(date '+%Y.%m.%d._%H:%M:%S').png"
+cmd="fswebcam"
+options=" -d /dev/video1 \
+	-r 1024x720 \
+	-i 0 \
+	--png -1 \
+	-D 3 \
+	-S 60 \
+	--no-banner"
+
+${cmd} ${options} ${place}/${name}

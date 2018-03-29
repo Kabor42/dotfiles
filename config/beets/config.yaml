@@ -1,0 +1,46 @@
+library: /home/kabor/Music/music.blb
+directory: /home/kabor/Music
+import:
+    copy: yes
+    write: yes
+    resume: ask
+    quiet_fallback: skip
+    timid: no
+    log: beetslog.txt
+ignore: .AppleDouble ._* *~ .DS_Store
+art_filename: albumart
+plugins: bpd embedart fetchart lastgenre replaygain convert duplicates missing
+embedart:
+    auto: yes
+    compare_treshold: 0
+    ifempty: no
+    maxwidth: 0
+    remove_art_file: no
+fetchart:
+    auto: yes
+    cautious: no
+    cover_names: cover front art album folder
+lastgenre:
+    auto: yes
+    count: 2
+    fallback: ''
+    source: album
+replaygain:
+    backend: gstreamer
+threaded: yes
+ui:
+    color: yes
+    colors:
+        text_success: green
+        text_warning: yellow
+        text_error: red
+        text_highlight: red
+        text_highlight_minor: lightgray
+        action_default: turquoise
+        action: blue
+
+paths:
+    default: $albumartist/$album/$track $title
+    singleton: Singletons/$artist - $title
+    comp: $album/$track $title
+    albumtype:soundtrack: Soundtracks/$album/$track $title

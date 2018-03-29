@@ -1,0 +1,18 @@
+text/plain; less %s; copiousoutput
+#text/html; /usr/bin/html2text -nobs %s; copiousoutput; description=HTML Text
+text/html;  w3m -I %{charset} -T text/html -F -dump '%s'
+#text/html;  lynx -force-html -dump '%s'; copiousoutput
+#text/html; links -html-numbered-links 1 -html-images 1 -dump file://'%s'; copiousoutput
+text/html;  qutebrowser '%s'; test=test -n "$DISPLAY"
+text/html;  palemoon '%s'; test=test -n "$DISPLAY"
+text/*;     urxvt -e less '%s'
+
+application/pdf; zathura %s
+application/msword;  libreoffice -writer %s
+application/vnd.ms-excel; libreoffice -calc %s
+application/vnd.ms-powerpoint; libreoffice -impress %s
+
+image/png;  /usr/bin/qiv -x 650 '%s'&; test=test -n "$DISPLAY"
+image/jpeg;  gpicview '%s'&; test=test -n "$DISPLAY"
+image/*;    qiv -x 650 '%s'&; test=test-n "$DISPLAY"
+
